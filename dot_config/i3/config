@@ -535,7 +535,7 @@ bindsym $mod+t exec rofi -show window \
 ##########################
 
 #exec sleep 3 && discord
-exec sleep 6 && ~/Applications/Rambox-2.0.2-linux-x64_2b696613ee72a63be4dab452d9f57e2c.AppImage
+#exec sleep 6 && ~/Applications/Rambox-2.0.2-linux-x64_2b696613ee72a63be4dab452d9f57e2c.AppImage
 #exec sleep 4 && obsidian
 #exec sleep 3 && ~/Applications/Anytype-0.25.4_767c04ac11e19fa4dbd18280c8fa28c4.AppImage
 #exec sleep 3 && signal-desktop
@@ -543,8 +543,8 @@ exec sleep 6 && ~/Applications/Rambox-2.0.2-linux-x64_2b696613ee72a63be4dab452d9
 #exec sleep 3 && steam
 #exec sleep 3 && pulsemeeter
 #exec sleep 3 && /usr/bin/emacs --daemon &
-exec sleep 3 && syncthing
-exec sleep 3 && solaar
+#exec sleep 3 && syncthing
+#exec sleep 3 && solaar
 
 
 
