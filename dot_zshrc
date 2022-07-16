@@ -26,6 +26,9 @@ alias rm='rm -i'
 alias tw='wtwitch'
 alias ani='ani-cli'
 alias nv='nvim'
+alias ca='chezmoi add'
+alias cu='chezmoi re-add'
+alias cg='chezmoi git push'
 
 SSH_ENV="$HOME/.ssh/agent-environment"
 
