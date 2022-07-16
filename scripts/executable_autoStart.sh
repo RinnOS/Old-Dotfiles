@@ -15,7 +15,11 @@ sh $HOME/scripts/nvidiaPipeline.sh
 
 sleep 3
 run "/usr/bin/emacs --daemon"
+run pulsemeeter
 run discord
+run steam
+run lutris
+
 
 #startProgram 3 "discord"
 #startProgram 4 "obsidian"

@@ -80,15 +80,17 @@ assign [class="rambox"] $ws5
 assign [class="Discord"] $ws5
 
 # Middle monitor
-assign [class="Steam"] $ws3
-assign [class="Lutris"] $ws3
-assign [class="MultiMC"] $ws3
-assign [class="Origin"] $ws3
+assign [class="Steam"] $ws4
+assign [class="Lutris"] $ws4
+assign [class="MultiMC"] $ws4
+assign [class="PolyMC"] $ws4
+assign [class="Origin"] $ws4
 
 assign [class="obsidian"] $ws2
 assign [class="Signal"] $ws2
-assign [class="Code"] $ws2
-assign [class="GitFiend"] $ws2
+
+assign [class="Code"] $ws3
+assign [class="GitFiend"] $ws3
 
 
 #################################
