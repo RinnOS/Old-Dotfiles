@@ -8,14 +8,14 @@ run(){
 }
 
 sh $HOME/scripts/monitorLayout.sh
+sleep .5
+nitrogen --restore &
 sleep 2
 sh $HOME/scripts/nvidiaPipeline.sh
 
-nitrogen --restore &
-
-sleep 5
+sleep 3
 run "/usr/bin/emacs --daemon"
-#run discord
+run discord
 
 #startProgram 3 "discord"
 #startProgram 4 "obsidian"
