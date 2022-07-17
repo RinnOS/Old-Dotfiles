@@ -14,6 +14,7 @@ sleep 2
 sh $HOME/scripts/nvidiaPipeline.sh
 
 sleep 3
+run dunst
 run "/usr/bin/emacs --daemon"
 run pulsemeeter
 run discord
