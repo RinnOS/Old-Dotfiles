@@ -4,15 +4,17 @@
 ;; variables scraped from your default shell (based on your settings for 
 ;; `doom-env-allow' and `doom-env-deny').
 ;;
-;; This file is safe to edit by hand, but needs to be loaded manually with:
+;; It is NOT safe to edit this file. Changes will be overwritten next time you
+;; run 'doom sync'. To create a safe-to-edit envvar file use:
 ;;
-;;   (doom-load-envvars-file "path/to/this/file")
+;;   doom env -o ~/.doom.d/myenv
 ;;
-;; Use 'doom env -o path/to/this/file' to regenerate it.
+;; And load it with (doom-load-envvars-file "~/.doom.d/myenv").
+
 ("_=/usr/bin/emacs"
  "LC_NUMERIC=en_SE"
  "MAIL=/var/spool/mail/luna"
- "PATH=/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/mnt/BigDrive/Programming/packwiz:/home/luna/bin:/home/luna/.emacs.d/bin:/usr/lib/jvm/java-8-openjdk/bin:/tools:/platform-tools:/home/luna/RinnOS"
+ "PATH=/home/luna/.emacs.d/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/mnt/BigDrive/Programming/packwiz:/home/luna/bin:/home/luna/.emacs.d/bin:/usr/lib/jvm/java-8-openjdk/bin:/tools:/platform-tools:/home/luna/RinnOS"
  "BROWSER=firefox"
  "GTK3_MODULES=xapp-gtk3-module"
  "LC_TIME=en_SE"
