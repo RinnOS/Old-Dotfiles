@@ -261,7 +261,8 @@ mode "exit: [l]ogout, [r]eboot, [s]hutdown" {
 }
 
 # exit-menu
-bindsym $mod+Shift+e mode "exit: [l]ogout, [r]eboot, [s]hutdown"
+#bindsym $mod+Shift+e mode "exit: [l]ogout, [r]eboot, [s]hutdown"
+bindsym $mod+Shift+e exec $HOME/.config/rofi/bin/powermenu
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -318,7 +319,7 @@ bindsym XF86AudioPrev exec playerctl previous
 ## App shortcuts
 bindsym $mod+n exec /usr/bin/thunar
 bindsym Print exec flameshot gui
-bindsym $mod+p exec dmenu_run
+bindsym $mod+p exec $HOME/.config/rofi/bin/launcher_colorful
 
 # Power Profiles menu switcher (rofi)
 #bindsym $mod+Shift+p exec ~/.config/i3/scripts/power-profiles

@@ -3,6 +3,9 @@
 (after! treemacs
   (setq treemacs-width 25))
 
+(after! elfeed
+  (setq elfeed-search-filter "@1-months-ago +unread"))
+
 (after! hl-todo
   (setq hl-todo-keyword-faces
         '(("FOO" . "#FF4500")
@@ -36,14 +39,26 @@
 
 (map! :leader
       (:prefix-map ("o" . "Org")
-       :desc "Toggle buffer" "b" #'org-roam-buffer-toggle
-       :desc "Find node" "f" #'org-roam-node-find
-       :desc "Insert node" "i" #'org-roam-node-insert
-       :desc "Ring goto" "r g" #'org-mark-ring-goto
+       :desc "Toggle buffer"       "b"              #'org-roam-buffer-toggle
+       :desc "Find node"           "f"              #'org-roam-node-find
+       :desc "Insert node"         "i"              #'org-roam-node-insert
+       :desc "Ring goto"           "r g"            #'org-mark-ring-goto
        )
 
-      (:desc "Treemacs" "t t t" #'treemacs
-       :desc "VTerm" "v" #'vterm
+      (:prefix-map ("w" . "Window")
+       :desc "Window left"         "<left>"       #'evil-window-left
+       :desc "Window right"        "<right>"      #'evil-window-right
+       :desc "window up"           "<up>"         #'evil-window-up
+       :desc "Window down"         "<down>"       #'evil-window-down
+       :desc "Goto next window"    "w"            #'evil-window-next
+       :desc "Close window"        "c"            #'evil-window-delete
+       :desc "New window"          "n"            #'evil-window-new
+       :desc "Horizontal split"    "s"            #'evil-window-split
+       :desc "Vertical split"      "v"            #'evil-window-vsplit
+       )
+
+      (:desc "Treemacs"            "t t t"          #'treemacs
+       :desc "VTerm"               "v"              #'vterm
        )
       )
 

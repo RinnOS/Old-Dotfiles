@@ -11,7 +11,7 @@
 			"jack_channels": []
 		},
 		"2": {
-			"name": "bluez_sink.20_74_CF_74_C4_61.a2dp_sink",
+			"name": "bluez_output.20_74_CF_74_C4_61.a2dp-sink",
 			"vol": 88,
 			"mute": false,
 			"eq_control": "",
