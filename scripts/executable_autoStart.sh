@@ -16,6 +16,7 @@ sh $HOME/scripts/nvidiaPipeline.sh
 
 sleep 3
 run dunst
+run blueman-manager
 run "/usr/bin/emacs --daemon"
 run pulsemeeter
 run $HOME/Applications/Rambox-*.AppImage
