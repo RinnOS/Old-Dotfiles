@@ -34,18 +34,31 @@ set $left "DP-2"
 set $right "DP-1"
 
 # Colors
-set $darkbluetrans	#08052be6
-set $darkblue		#08052b
-set $lightblue		#5294e2
-set $urgentred		#e53935
-set $white		#ffffff
-set $black		#000000
-set $purple		#e345ff
-set $darkgrey		#383c4a
-set $grey		#b0b5bd
-set $mediumgrey		#8b8b8b
-set $yellowbrown	#e1b700
+set $bg			#0D0E16
+set $bg-alt		#040408
+set $fg			#CEDBE5
+set $fg-alt		#E5F4FF	
+set $red		#D83441
+set $green		#79D836
+set $yellow		#D8B941
+set $blue		#3679D8
+set $magenta		#8041D8
+set $cyan		#36D8BD
+set $orange		#D85F00
+set $teal		#2D9574
+set $violet		#AB11D8
+set $dark-blue		#0C213E
+set $dark-cyan		#092D27
 
+set $base0		#0F1019
+set $base1		#121212
+set $base2		#1E1E33
+set $base3		#464A56
+set $base4		#585C6C
+set $base5		#767676
+set $base6		#959EA5
+set $base7		#B2B2B2
+set $base8		#D0D0D0
 
 ##############################
 ##  WORKSPACES TO MONITORS  ##
@@ -150,7 +163,7 @@ workspace_layout default
 floating_modifier $mod
 
 # Open terminal
-bindsym     $mod+Return  exec terminator
+bindsym     $mod+Return  exec alacritty
 
 # Kill focused window
 bindsym $mod+q kill
@@ -360,12 +373,12 @@ for_window [class="urxvt"] border pixel 1
 
 font pango: Noto Sans Regular 10
 
-#                   BORDER      BACKGROUND     TEXT        INDICATOR      CHILD_BORDER
-client.focused      #ec05f0     #285577        #ffffff     #ec05f0        #ec05f0
-client.urgent       #900000     #900000        #ffffff     #f90000        #f90000
+#                   		 BORDER      BACKGROUND     TEXT        INDICATOR      CHILD_BORDER
+client.focused      		 $magenta    $bg-alt        $fg         $cyan        $magenta
+client.urgent      		 $red        $bg            $fg         $red           $red
 
-client.unfocused	    $darkblue	$darkblue	$grey		$purple		$darkgrey
-client.focused_inactive	$darkblue	$darkblue	$grey		$purple		$black
+client.unfocused	    	 $base2      $bg	    $fg		$violet	       $base2
+client.focused_inactive		 $base5      $bg	    $fg		$violet	       $base5
 
 #border indicator on windows:
 new_window pixel 2
