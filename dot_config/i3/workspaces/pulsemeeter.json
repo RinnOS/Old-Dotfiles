@@ -5,10 +5,10 @@
     "marks": [],
     "percent": null,
     "rect": {
-       "height": 646,
+       "height": 694,
        "width": 1138,
-       "x": 1082,
-       "y": 431
+       "x": 1085,
+       "y": 383
     },
     "type": "floating_con",
     "nodes": [
@@ -27,11 +27,12 @@
             "percent": 1,
             "swallows": [
                {
-                  "class": "^Pulsemeeter$",
-                  "instance": "^pulsemeeter$"
+                "instance": "^pulsemeeter$",
+                "title": "^Pulsemeeter$"
                }
             ],
             "type": "con"
         }
     ]
 }
+

@@ -121,6 +121,8 @@ for_window [class="obsidian"] layout tabbed
 for_window [class="GitFiend"] layout tabbed
 for_window [class="FreeTube"] layout tabbed
 
+for_window [class="Waterfox"] layout stacked
+
 for_window[class="Steam"] floating enable
 for_window[class="Steam" title="^Steam$"] floating disable
 
