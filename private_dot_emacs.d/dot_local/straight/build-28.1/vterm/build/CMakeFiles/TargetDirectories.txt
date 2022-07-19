@@ -1,0 +1,5 @@
+/home/luna/.emacs.d/.local/straight/build-28.1/vterm/build/CMakeFiles/vterm-module.dir
+/home/luna/.emacs.d/.local/straight/build-28.1/vterm/build/CMakeFiles/libvterm.dir
+/home/luna/.emacs.d/.local/straight/build-28.1/vterm/build/CMakeFiles/run.dir
+/home/luna/.emacs.d/.local/straight/build-28.1/vterm/build/CMakeFiles/edit_cache.dir
+/home/luna/.emacs.d/.local/straight/build-28.1/vterm/build/CMakeFiles/rebuild_cache.dir
