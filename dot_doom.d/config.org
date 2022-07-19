@@ -1,0 +1,169 @@
+* TABLE OF CONTENTS :toc:
+- [[#unsorted][UNSORTED]]
+  - [[#elcord][Elcord]]
+- [[#package-configs][PACKAGE CONFIGS]]
+  - [[#treemacs][Treemacs]]
+  - [[#rss-feed][RSS Feed]]
+  - [[#hl-todo][hl-todo]]
+- [[#style][STYLE]]
+  - [[#fullscreen][Fullscreen]]
+  - [[#theme][Theme]]
+  - [[#font][Font]]
+  - [[#line-numbers][Line numbers]]
+  - [[#gui][GUI]]
+- [[#keybindings][Keybindings]]
+  - [[#escape-quit][Escape quit]]
+  - [[#space][Space]]
+  - [[#minimap][Minimap]]
+  - [[#treemacs-1][Treemacs]]
+  - [[#vterm][VTerm]]
+- [[#org][ORG]]
+  - [[#directory][Directory]]
+  - [[#templates][Templates]]
+
+* UNSORTED
+** Elcord
+#+begin_src emacs-lisp
+    (elcord-mode)
+#+end_src
+
+* PACKAGE CONFIGS
+** Treemacs
+#+begin_src emacs-lisp
+    (after! treemacs
+      (setq treemacs-width 25))
+#+end_src
+
+** RSS Feed
+#+begin_src emacs-lisp
+    (after! elfeed
+      (setq elfeed-search-filter "@1-months-ago +unread"))
+#+end_src
+
+** hl-todo
+#+begin_src emacs-lisp
+    (after! hl-todo
+      (setq hl-todo-keyword-faces
+            '(("FOO" . "#FF4500")
+              )
+            )
+      )
+#+end_src
+
+* STYLE
+** Fullscreen
+#+begin_src emacs-lisp
+    (add-to-list 'initial-frame-alist '(fullscreen . maximized))
+#+end_src
+
+** Theme
+#+begin_src emacs-lisp
+    (setq doom-themes-enable-bold t
+          doom-themes-enable-italic t)
+
+    (load-theme 'doom-acario-dark t)
+#+end_src
+
+** Font
+#+begin_src emacs-lisp
+    ;; Uncomment the following line if line spacing needs adjusting.
+    (setq-default line-spacing 0.08)
+
+    ;; Needed if using emacsclient. Otherwise, your fonts will be smaller than expected.
+    (add-to-list 'default-frame-alist '(font .  "Source Code Pro-11"))
+    ;; Changes certain keywords to symbols, such as lambda!
+    (setq global-prettify-symbols-mode t)
+#+end_src
+
+** Line numbers
+#+begin_src emacs-lisp
+    (setq display-line-numbers-type t)
+#+end_src
+
+** GUI
+#+begin_src emacs-lisp
+    (scroll-bar-mode -1)
+    (tool-bar-mode -1)
+    (set-fringe-mode 10)
+    (menu-bar-mode -1)
+#+end_src
+
+* Keybindings
+** Escape quit
+#+begin_src emacs-lisp
+    (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
+#+end_src
+
+** Space
+#+begin_src emacs-lisp
+    (map! :leader
+          (:prefix-map ("o" . "Org")
+           :desc "Toggle buffer"       "b"              #'org-roam-buffer-toggle
+           :desc "Find node"           "f"              #'org-roam-node-find
+           :desc "Insert node"         "i"              #'org-roam-node-insert
+           :desc "Ring goto"           "r g"            #'org-mark-ring-goto
+           )
+
+          (:prefix-map ("w" . "Window")
+           :desc "Window left"         "<left>"       #'evil-window-left
+           :desc "Window right"        "<right>"      #'evil-window-right
+           :desc "window up"           "<up>"         #'evil-window-up
+           :desc "Window down"         "<down>"       #'evil-window-down
+           :desc "Goto next window"    "w"            #'evil-window-next
+           :desc "Close window"        "c"            #'evil-window-delete
+           :desc "New window"          "n"            #'evil-window-new
+           :desc "Horizontal split"    "s"            #'evil-window-split
+           :desc "Vertical split"      "v"            #'evil-window-vsplit
+           )
+
+          (:desc "Treemacs"            "t t t"          #'treemacs
+           :desc "VTerm"               "v"              #'vterm
+           )
+          )
+#+end_src
+
+** Minimap
+#+begin_src emacs-lisp
+    (global-set-key (kbd "<f8>") 'minimap-mode)
+#+end_src
+
+** Treemacs
+#+begin_src emacs-lisp
+    (global-set-key (kbd "<f7>") 'treemacs)
+#+end_src
+
+** VTerm
+#+begin_src emacs-lisp
+    (global-set-key (kbd "<f5>") 'vterm)
+#+end_src
+
+
+* ORG
+#+begin_src emacs-lisp
+    (after! org
+      :config
+      (setq org-ellipsis " ▾")
+      (setq org-hide-emphasis-markers t)
+      (setq org-agenda-files '())
+      )
+#+end_src
+
+** Directory
+#+begin_src emacs-lisp
+    (let ((org-dir "/mnt/Vault/OrgDir"))
+      (unless (file-exists-p org-dir))
+
+      (setq org-directory org-dir
+            org-roam-directory org-dir))
+#+end_src
+
+** Templates
+#+begin_src emacs-lisp
+    (setq org-roam-capture-templates
+          '(("d" "default" plain
+             "%?"
+             :if-new (file+head "${slug}.org" "#+TITLE: ${title}\n")
+             :unnarrowed t)
+            )
+          )
+#+end_src
