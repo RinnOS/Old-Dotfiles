@@ -26,7 +26,10 @@ alias mv='mv -i'
 alias rm='rm -i'
 alias tw='wtwitch'
 alias ani='ani-cli'
+
 alias nv='nvim'
+alias vim='nv'
+
 alias ca='chezmoi add'
 alias cu='chezmoi re-add'
 alias cg='chezmoi git push'

@@ -1,3 +1,13 @@
+" --- NOTES ---
+" :PlugClean :PlugInstall :UpdateRemotePlugins
+" 
+" :CocInstall coc-tsserver
+" :CocInstall coc-json
+" :CocInstall coc-markdownlint
+" :CocInstall coc-yaml
+"
+" :Copilot setup
+
 :set number
 :set autoindent
 :set tabstop=4
@@ -17,7 +27,8 @@ Plug 'https://github.com/ryanoasis/vim-devicons'
 Plug 'https://github.com/mg979/vim-visual-multi'							" CTRL + N for multiple cursors
 Plug 'https://github.com/preservim/tagbar'
 Plug 'https://github.com/neoclide/coc.nvim', {'branch': 'release'}			" Auto Completion
-																			" CocInstall coc-tsserver coc-json
+Plug 'https://github.com/github/copilot.vim'
+Plug 'https://github.com/andweeb/presence.nvim'
 
 call plug#end()
 
@@ -25,3 +36,6 @@ nnoremap <C-t> :NERDTreeToggle<CR>
 
 nmap <F7> :NERDTreeToggle<CR>
 nmap <F8> :TagbarToggle<CR>
+
+
+inoremap <expr> <Tab> pumvisible() ? coc#_select_confirm() :"<Tab>"

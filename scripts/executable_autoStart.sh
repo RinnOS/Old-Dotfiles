@@ -23,7 +23,7 @@ run $HOME/Applications/Rambox-*.AppImage
 run discord
 run steam
 run lutris
-
+run spotify
 
 #startProgram 3 "discord"
 #startProgram 4 "obsidian"
