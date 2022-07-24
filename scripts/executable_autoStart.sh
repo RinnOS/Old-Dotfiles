@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+APP="$HOME/Applications"
+
 run(){
     if ! pgrep $1 ;
     then
@@ -9,17 +11,18 @@ run(){
 
 sh $HOME/scripts/monitorLayout.sh
 sleep .5
-nitrogen --restore &
 run picom
 sleep 2
 sh $HOME/scripts/nvidiaPipeline.sh
+sleep 1
+nitrogen --restore
 
 sleep 3
 run dunst
 run blueman-applet
 run "/usr/bin/emacs --daemon"
 run pulsemeeter
-run $HOME/Applications/Rambox-*.AppImage
+run $APP/Rambox-*.AppImage
 run discord
 run steam
 run lutris

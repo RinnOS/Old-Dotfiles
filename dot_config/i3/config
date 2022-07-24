@@ -106,8 +106,8 @@ assign [class="Code"] $ws3
 assign [class="GitFiend"] $ws3
 
 # Right monitor
-assign [class="Spotify"] $ws8
-
+assign [class="spotify"] $ws8
+assign [class="mpv"] $ws8
 
 #################################
 ##  RESTORE WORKSPACE LAYOUTS  ##
