@@ -1,6 +1,6 @@
 ;; -*- mode: emacs-lisp; eval: (progn (pp-buffer) (indent-buffer)) -*-
 ((def-persp "main"
-   ((def-buffer "launcher_colorful" "/home/luna/.config/rofi/launchers/colorful/launcher.sh" sh-mode))
+   ((def-buffer "dunstrc" "/home/luna/.config/dunst/dunstrc" conf-unix-mode))
    (def-wconf
      (((min-height . 4)
        (min-width . 10)
@@ -16,9 +16,9 @@
        (min-pixel-width-safe . 18))
       leaf
       (pixel-width . 1906)
-      (pixel-height . 889)
+      (pixel-height . 937)
       (total-width . 211)
-      (total-height . 44)
+      (total-height . 46)
       (normal-height . 1.0)
       (normal-width . 1.0)
       (parameters
@@ -26,7 +26,7 @@
                                   (0 0 .
                                      [nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil])
                                   -1)))
-      (buffer "launcher_colorful"
+      (buffer "dunstrc"
               (selected . t)
               (hscroll . 0)
               (fringes 10 10 nil nil)
@@ -34,8 +34,8 @@
               (scroll-bars nil 0 t nil 0 t nil)
               (vscroll . 0)
               (dedicated)
-              (point . 735)
-              (start . 191))
+              (point . 7990)
+              (start . 7325))
       (prev-buffers
        ("*scratch*" 1 1))))
    (def-params nil)

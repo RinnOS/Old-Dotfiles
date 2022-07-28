@@ -1,4 +1,4 @@
-(elcord-mode)
+;;(elcord-mode)
 
 (after! treemacs
   (setq treemacs-width 25))

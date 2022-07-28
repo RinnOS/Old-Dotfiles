@@ -7,6 +7,7 @@
 (setq org-roam-node-history '("elfeed" "Index"))
 (setq evil-ex-history '(#("w" 0 1 (ex-index 1)) #("wq" 0 1 (ex-index 1) 1 2 (ex-index 2)) #("w" 0 1 (ex-index 1))))
 (setq file-name-history '("/mnt/BigDrive/Programming/Discord Bots/framework2/" "~/.doom.d/config.org" "~/.doom.d/packages.el" "~/.doom.d/config.org" "~/.doom.d/init.el" "~/.doom.d/config.org" "~/.doom.d/init.el"))
+(setq projectile-project-command-history '#s(hash-table size 65 test equal rehash-size 1.5 rehash-threshold 0.8125 data ()))
 (setq evil-jumps-history '((3303 "/home/luna/.doom.d/config.org") (9553 "/home/luna/.doom.d/init.el") (1 "/mnt/Vault/OrgDir/index.org") (3322 "/home/luna/.doom.d/config.org") (1 "/home/luna/.doom.d/config.org") (1164 "/home/luna/.doom.d/packages.el") (780 "/home/luna/.doom.d/config.org") (2145 "/home/luna/.doom.d/packages.el") (1 "/home/luna/.doom.d/packages.el") (2729 "/home/luna/.doom.d/init.el")))
 (setq kill-ring '("
 " ";" " " "[[id:4a4677bb-713c-4abf-a9cd-7209b4433469][Index]]

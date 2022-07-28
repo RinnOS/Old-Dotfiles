@@ -1,6 +1,6 @@
 ;; -*- mode: emacs-lisp; eval: (progn (pp-buffer) (indent-buffer)) -*-
 ((def-persp "main"
-   ((def-buffer "launcher_ribbon" "/home/luna/.config/rofi/launchers/ribbon/launcher.sh" sh-mode))
+   ((def-buffer "powermenu.sh" "/home/luna/.config/rofi/powermenu/powermenu.sh" sh-mode))
    (def-wconf
      (((min-height . 4)
        (min-width . 10)
@@ -26,7 +26,7 @@
                                   (0 0 .
                                      [nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil])
                                   -1)))
-      (buffer "launcher_ribbon"
+      (buffer "powermenu.sh"
               (selected . t)
               (hscroll . 0)
               (fringes 10 10 nil nil)
@@ -34,7 +34,7 @@
               (scroll-bars nil 0 t nil 0 t nil)
               (vscroll . 0)
               (dedicated)
-              (point . 515)
+              (point . 699)
               (start . 1))
       (prev-buffers
        ("*scratch*" 1 1))))
