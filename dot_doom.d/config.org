@@ -24,7 +24,7 @@
 * UNSORTED
 ** Elcord
 #+begin_src emacs-lisp
-    (elcord-mode)
+    ;;(elcord-mode)
 #+end_src
 
 * PACKAGE CONFIGS

@@ -301,10 +301,10 @@ bindsym XF86MonBrightnessUp exec xbacklight +5 && notify-send "Brightness - ${$(
 bindsym XF86MonBrightnessDown exec xbacklight -5 && notify-send "Brightness - ${$(xbacklight -get)%.*}%"
 
 # split in horizontal orientation
-bindsym $mod+h split h
+bindsym $mod+Control+h split h
 
 # split in vertical orientation
-bindsym $mod+v split v
+bindsym $mod+Control+v split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
@@ -351,7 +351,7 @@ bindsym $mod+p exec $HOME/.config/rofi/bin/launcher_colorful
 #bindsym $mod+Shift+p exec ~/.config/i3/scripts/power-profiles
 
 # Scratchpad
-bindsym $mod+87 [class="pulsemeeter"] scratchpad show; move position center
+#bindsym $mod+87 [class="pulsemeeter"] scratchpad show; move position center
 bindsym $mod+b [class="fm"] scratchpad show; move position center
 bindsym $mod+m [class="sound"] scratchpad show; move position center
 
@@ -372,6 +372,8 @@ for_window [class="Blueberry.py" instance="blueberry.py"] floating enable
 for_window [class="Bluetooth-sendto" instance="bluetooth-sendto"] floating enable
 for_window [class="Pamac-manager"] floating enable
 for_window [window_role="About"] floating enable
+for_window [class="fm"] floating enable
+for_window [class="sound"] floating enable
 
 # set border of floating window
 for_window [class="urxvt"] border pixel 1

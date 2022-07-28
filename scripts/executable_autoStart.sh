@@ -28,8 +28,8 @@ run steam
 run lutris
 run spotify
 
-run "alacritty --class fm,fm -e ranger"
-run "alacritty --class sound,sound -e pulsemixer"
+# run "alacritty --class fm,fm -e ranger"
+# run "alacritty --class sound,sound -e pulsemixer"
 
 #startProgram 3 "discord"
 #startProgram 4 "obsidian"
