@@ -1,3 +1,0 @@
-(dired-duplicates
- :url "https://codeberg.org/hjudt/dired-duplicates.git"
- :fetcher git)

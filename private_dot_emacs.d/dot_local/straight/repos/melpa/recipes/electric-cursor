@@ -1,3 +1,0 @@
-(electric-cursor
- :url "https://codeberg.org/acdw/electric-cursor.el"
- :fetcher git)

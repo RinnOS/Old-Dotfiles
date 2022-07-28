@@ -1,4 +1,0 @@
-(detached
- :fetcher git
- :url "https://git.sr.ht/~niklaseklund/detached.el"
- :old-names (dtache))
