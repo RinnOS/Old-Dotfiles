@@ -1,169 +1,211 @@
 * TABLE OF CONTENTS :toc:
-- [[#unsorted][UNSORTED]]
-  - [[#elcord][Elcord]]
-- [[#package-configs][PACKAGE CONFIGS]]
-  - [[#treemacs][Treemacs]]
-  - [[#rss-feed][RSS Feed]]
-  - [[#hl-todo][hl-todo]]
-- [[#style][STYLE]]
-  - [[#fullscreen][Fullscreen]]
-  - [[#theme][Theme]]
-  - [[#font][Font]]
-  - [[#line-numbers][Line numbers]]
-  - [[#gui][GUI]]
-- [[#keybindings][Keybindings]]
-  - [[#escape-quit][Escape quit]]
-  - [[#space][Space]]
-  - [[#minimap][Minimap]]
-  - [[#treemacs-1][Treemacs]]
-  - [[#vterm][VTerm]]
-- [[#org][ORG]]
-  - [[#directory][Directory]]
-  - [[#templates][Templates]]
 
-* UNSORTED
-** Elcord
-#+begin_src emacs-lisp
-    ;;(elcord-mode)
-#+end_src
+* Unsorted
+
 
 * PACKAGE CONFIGS
-** Treemacs
-#+begin_src emacs-lisp
-    (after! treemacs
-      (setq treemacs-width 25))
-#+end_src
-
-** RSS Feed
-#+begin_src emacs-lisp
-    (after! elfeed
-      (setq elfeed-search-filter "@1-months-ago +unread"))
-#+end_src
-
 ** hl-todo
 #+begin_src emacs-lisp
-    (after! hl-todo
-      (setq hl-todo-keyword-faces
-            '(("FOO" . "#FF4500")
-              )
-            )
-      )
+	(after! hl-todo
+		(setq hl-todo-keyword-faces
+			'(("FOO" . "#FF4500")
+				)))
 #+end_src
+
+** Yasnippet
+#+begin_src emacs-lisp
+	(setq yas-snippet-dirs
+		'("~/.doom.d/snippets"
+			))
+	(yas-global-mode 1)
+#+end_src
+
+** Projectile
+#+begin_src emacs-lisp
+	(setq projectile-project-search-path '("~/Projects" "~/Documents/Projects" "/mnt/Vault/Projects"))
+#+end_src
+
+** Company
+#+begin_src emacs-lisp
+	(setq company-idle-delay 0.2)
+	(setq company-minimum-prefix-length 2)
+#+end_src
+
 
 * STYLE
 ** Fullscreen
 #+begin_src emacs-lisp
-    (add-to-list 'initial-frame-alist '(fullscreen . maximized))
+	(add-to-list 'initial-frame-alist '(fullscreen . maximized))
 #+end_src
 
 ** Theme
 #+begin_src emacs-lisp
-    (setq doom-themes-enable-bold t
-          doom-themes-enable-italic t)
+	(setq doom-themes-enable-bold t
+		doom-themes-enable-italic t)
 
-    (load-theme 'doom-acario-dark t)
-#+end_src
-
-** Font
-#+begin_src emacs-lisp
-    ;; Uncomment the following line if line spacing needs adjusting.
-    (setq-default line-spacing 0.08)
-
-    ;; Needed if using emacsclient. Otherwise, your fonts will be smaller than expected.
-    (add-to-list 'default-frame-alist '(font .  "Source Code Pro-11"))
-    ;; Changes certain keywords to symbols, such as lambda!
-    (setq global-prettify-symbols-mode t)
+	(load-theme 'doom-acario-dark t)
 #+end_src
 
 ** Line numbers
 #+begin_src emacs-lisp
-    (setq display-line-numbers-type t)
+  (setq display-line-numbers-type t)
 #+end_src
 
 ** GUI
 #+begin_src emacs-lisp
-    (scroll-bar-mode -1)
-    (tool-bar-mode -1)
-    (set-fringe-mode 10)
-    (menu-bar-mode -1)
+  (scroll-bar-mode -1)
+  (tool-bar-mode -1)
+  (set-fringe-mode 10)
+  (menu-bar-mode -1)
 #+end_src
 
-* Keybindings
+#+begin_src emacs-lisp
+	(set-face-attribute 'default nil
+		:font "SauceCodePro Nerd Font 11"
+		:weight 'medium)
+	(set-face-attribute 'variable-pitch nil
+		:font "Ubuntu Nerd Font 11"
+		:weight 'medium)
+	(set-face-attribute 'fixed-pitch nil
+		:font "SauceCodePro Nerd Font 11"
+		:weight 'medium)
+	(add-to-list 'default-frame-alist '(font . "Source Code Pro-11"))
+	(setq-default line-spacing 0.08)
+	(setq global-prettify-symbols-mode t)
+#+end_src
+
+
+* KEYBINDINGS
+** Zooming In and Out
+#+begin_src emacs-lisp
+	(global-set-key (kbd "C-+") 'text-scale-increase)
+	(global-set-key (kbd "C--") 'text-scale-decrease)
+	(global-set-key (kbd "<C-wheel-up>") 'text-scale-increase)
+	(global-set-key (kbd "<C-wheel-down>") 'text-scale-decrease)
+	(global-set-key (kbd "C-0") '(lambda () (interactive) (text-scale-adjust 0)))
+#+end_src
+
+** Undo and Redo
+#+begin_src emacs-lisp
+	(global-unset-key (kbd "C-z"))
+	(global-set-key (kbd "C-z") 'undo-fu-only-undo)
+	(global-set-key (kbd "C-S-z") 'undo-fu-only-redo)
+#+end_src
+
 ** Escape quit
 #+begin_src emacs-lisp
-    (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
+	(global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 #+end_src
 
-** Space
+** Global
 #+begin_src emacs-lisp
-    (map! :leader
-          (:prefix-map ("o" . "Org")
-           :desc "Toggle buffer"       "b"              #'org-roam-buffer-toggle
-           :desc "Find node"           "f"              #'org-roam-node-find
-           :desc "Insert node"         "i"              #'org-roam-node-insert
-           :desc "Ring goto"           "r g"            #'org-mark-ring-goto
-           )
+	(global-set-key (kbd "<f5>") 'vterm)
+	(global-set-key (kbd "<f7>") 'neotree)
+	(global-set-key (kbd "<f8>") 'minimap-mode)
 
-          (:prefix-map ("w" . "Window")
-           :desc "Window left"         "<left>"       #'evil-window-left
-           :desc "Window right"        "<right>"      #'evil-window-right
-           :desc "window up"           "<up>"         #'evil-window-up
-           :desc "Window down"         "<down>"       #'evil-window-down
-           :desc "Goto next window"    "w"            #'evil-window-next
-           :desc "Close window"        "c"            #'evil-window-delete
-           :desc "New window"          "n"            #'evil-window-new
-           :desc "Horizontal split"    "s"            #'evil-window-split
-           :desc "Vertical split"      "v"            #'evil-window-vsplit
-           )
-
-          (:desc "Treemacs"            "t t t"          #'treemacs
-           :desc "VTerm"               "v"              #'vterm
-           )
-          )
+	(global-set-key (kbd "C-ö") 'comment-or-uncomment-region)
 #+end_src
 
-** Minimap
+** Help
++begin_src emacs-lisp
+	(map! :leader
+		(:prefix-map ("h" . "Help")
+			(:prefix-map ("s" . "Snippets")
+				:desc "New snippet" "n" #'yas-new-snippet)))
++end_src
+
+** File
++begin_src emacs-lisp
+	(map! :leader
+		(:prefix-map ("f" . "File")
+			:desc "Save" "s" #'save-buffer
+			:desc "Save as" "S" #'write-file
+			:desc "Rename" "r" #'rename-file
+			:desc "Delete" "d" #'delete-file
+			:desc "Edit as root" "u" #'sudo-edit
+			:desc "Find file" "f" #'find-file
+			:desc "Find file as root" "U" #'sudi-edit-find-file))
++end_src
+
+** Window
 #+begin_src emacs-lisp
-    (global-set-key (kbd "<f8>") 'minimap-mode)
+	(map! :leader
+		(:prefix-map ("w" . "Window")
+			:desc "Close window" "c" #'evil-window-delete
+			:desc "New window" "n" #'evil-window-new
+			:desc "Horizontal split window" "s" #'evil-window-split
+			:desc "Vertical split window" "v" #'evil-window-vsplit
+
+			:desc "Window left" "h" #'evil-window-left
+			:desc "Window right" "l" #'evil-window-right
+			:desc "Window up" "k" #'evil-window-up
+			:desc "Window down" "j" #'evil-window-down
+			;; Arrow keys
+			:desc "Window left" "<left>" #'evil-window-left
+			:desc "Window right" "<right>" #'evil-window-right
+			:desc "Window up" "<up>" #'evil-window-up
+			:desc "Window down" "<down>" #'evil-window-down
+
+			:desc "Next window" "w" #'evil-window-next))
 #+end_src
 
-** Treemacs
+** Buffers
 #+begin_src emacs-lisp
-    (global-set-key (kbd "<f7>") 'treemacs)
+	(map! :leader
+		(:prefix-map ("b" . "Buffers")
+			:desc "Open ibuffer" "b" #'ibuffer
+			:desc "Kill current buffer" "k" #'kill-this-buffer
+			:desc "Next buffer" "n" #'next-buffer
+			:desc "Previous buffer" "p" #'previous-buffer
+			:desc "List buffers" "B" #'list-buffers
+			:desc "Kill buffer" "K" #'kill-buffer))
 #+end_src
 
-** VTerm
+** Project
++begin_src emacs-lisp
+	(map! :leader
+		(:prefix-map ("p" . "Project")
+			:desc "Find other file" "a" #'projectile-find-other-file
+			:desc "Switch project" "s" #'projectile-switch-project))
++end_src
+
+** Neotree
 #+begin_src emacs-lisp
-    (global-set-key (kbd "<f5>") 'vterm)
+	(map! :leader
+		(:prefix-map ("n" . "Neotree")
+			:desc "Toggle neotree" "t" #'neotree-toggle
+			:desc "Find file" "f" #'neotree-find
+			:desc "Open directory" "d" #'neotree-dir
+			:desc "Show neotree" "s" #'neotree-show
+			:desc "Rename node" "r" #'neotree-rename-node
+			:desc "Delete node" "d" #'neotree-delete-node
+			:desc "Create directory" "C" #'neotree-create-node-directory
+			:desc "Create file" "c" #'neotree-create-node-file
+			:desc "Toggle hidden files" "H" #'neotree-toggle-hidden-files))
 #+end_src
 
-
-* ORG
+** Yasnippet
 #+begin_src emacs-lisp
-    (after! org
-      :config
-      (setq org-ellipsis " ▾")
-      (setq org-hide-emphasis-markers t)
-      (setq org-agenda-files '())
-      )
+	(map! :leader
+		(:prefix-map ("y" . "Yansippet")
+			:desc "New snippet" "n" #'yas-new-snippet))
 #+end_src
 
-** Directory
+** Toggle
 #+begin_src emacs-lisp
-    (let ((org-dir "/mnt/Vault/OrgDir"))
-      (unless (file-exists-p org-dir))
-
-      (setq org-directory org-dir
-            org-roam-directory org-dir))
+	(map! :leader
+		(:prefix-map ("t" . "Toggle")
+			:desc "Toggle truncate lines" "t" #'toggle-truncate-lines
+			:desc "Toggle minimap" "m" #'minimap-mode
+			:desc "Toggle neotree" "n" #'neotree-toggle
+			:desc "Toggle vterm" "v" #'vterm-toggle))
 #+end_src
 
-** Templates
+** Extras
 #+begin_src emacs-lisp
-    (setq org-roam-capture-templates
-          '(("d" "default" plain
-             "%?"
-             :if-new (file+head "${slug}.org" "#+TITLE: ${title}\n")
-             :unnarrowed t)
-            )
-          )
+	(map! :leader
+		:desc "Undo" "u" #'undo-fu-only-undo
+		:desc "Redo" "r" #'undo-fu-only-redo)
 #+end_src
+
+
