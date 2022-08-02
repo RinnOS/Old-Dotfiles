@@ -1,5 +1,0 @@
-/home/luna/.emacs.d/elpa/vterm-20220613.1614/build/CMakeFiles/vterm-module.dir
-/home/luna/.emacs.d/elpa/vterm-20220613.1614/build/CMakeFiles/libvterm.dir
-/home/luna/.emacs.d/elpa/vterm-20220613.1614/build/CMakeFiles/run.dir
-/home/luna/.emacs.d/elpa/vterm-20220613.1614/build/CMakeFiles/edit_cache.dir
-/home/luna/.emacs.d/elpa/vterm-20220613.1614/build/CMakeFiles/rebuild_cache.dir
