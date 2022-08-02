@@ -1,3 +1,6 @@
 [user]
 	email = rinnray@gliroid.com
 	name = Rinnray
+[safe]
+	directory = /mnt/Valut/Second-Brain
+	directory = /mnt/Vault/Second-Brain
