@@ -16,8 +16,6 @@ variable = { fg = 'cyan' }
 'variable.parameter' = { fg = 'blue' }
 label = { fg = 'green' }
 keyword = { fg = 'red' }
-'keyword.control' = { fg = 'red' }
-'keyword.directive' = { fg = 'red' }
 operator = { fg = 'blue' }
 function = { fg = 'yellow' }
 tag = { fg = 'cyan' }
@@ -72,7 +70,6 @@ hint = { fg = 'blue', modifiers = ['bold'] }
 'special' = { fg = 'orange' }
 
 [palette]
-white = '#ffffff'
 black = '#000000'
 red = '#D83441'
 green = '#79D836'
@@ -81,24 +78,12 @@ yellow = '#D8B941'
 magenta = '#8041D8'
 cyan = '#36D8BD'
 gray = '#767676'
+orange = '#D85F00'
 
 # Custom to doom
 bg = '#0D0E16'
 bg-alt = '#040408'
 fg = '#C3DBE5'
-fg-alt = '#E5F4FF'
-base0 = '#0F1019'
-base1 = '#121212'
 base2 = '#1E1E33'
 base3 = '#464A56'
 base4 = '#585C6C'
-base5 = '#767676'
-base6 = '#959EA5'
-base7 = '#B2B2B2'
-base8 = '#D0D0D0'
-
-orange = '#D85F00'
-teal = '#2D9574'
-violet = '#AB11D8'
-dark-blue = '#0C213E'
-dark-cyan = '#092D27'
