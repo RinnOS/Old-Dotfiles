@@ -1,1 +1,1 @@
-nil
+("/mnt/BigDrive/Programming/Discord Bots/framework2/" "~/Projects/Try/")

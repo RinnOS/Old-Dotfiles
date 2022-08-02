@@ -1,0 +1,12 @@
+# Themes: base16, tokyonight, ayu_dark
+theme = 'doom_acario_dark'
+
+[editor]
+mouse = true
+middle-click-paste = true
+
+[editor.cursor-shape]
+insert = 'bar'
+
+[editor.file-picker]
+hidden = false

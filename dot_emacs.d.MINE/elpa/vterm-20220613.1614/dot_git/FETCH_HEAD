@@ -1,0 +1,14 @@
+3155a477b43c1567d754768f5be79296440ebaf8		branch 'master' of https://github.com/akermu/emacs-libvterm
+edde37ddc583bc427272daed0d6f97676c05cb6b	not-for-merge	branch 'akermu-patch-1' of https://github.com/akermu/emacs-libvterm
+f018462e1b533c74c458bfbb2a0a4b5a1622b982	not-for-merge	branch 'backtab_support' of https://github.com/akermu/emacs-libvterm
+dd012fa9986171221c0bce9d9fdb64332e1044a1	not-for-merge	branch 'directory_tracking' of https://github.com/akermu/emacs-libvterm
+2f37ca7a17a348a4b9c6c07c0ef9b6534c907883	not-for-merge	branch 'doc_improvements' of https://github.com/akermu/emacs-libvterm
+58506483cbef41d5c5fd0a73a23779c5c3be5ca9	not-for-merge	branch 'emacs_module_support' of https://github.com/akermu/emacs-libvterm
+4d0de3ddf3b541b3991c110dbee515743d55b17a	not-for-merge	branch 'fix_ctrl_j' of https://github.com/akermu/emacs-libvterm
+3e6529f16a20b71f7f2050b5db833ec4941ade44	not-for-merge	branch 'link_pthread' of https://github.com/akermu/emacs-libvterm
+72f7fae5eab492b9decc0270b2c9a80fba312ed5	not-for-merge	branch 'remote_directory_tracking' of https://github.com/akermu/emacs-libvterm
+cbadd81489f8d481d8ff247c71fb7cf0214e99f0	not-for-merge	branch 'support_pagedown' of https://github.com/akermu/emacs-libvterm
+a1af04d1db8a677c727776b7f15e3a1529ea8a50	not-for-merge	branch 'tmux_mouse_scroll_support' of https://github.com/akermu/emacs-libvterm
+46f222eeef6ae5820c91c3aa4f86d385dd126cbc	not-for-merge	branch 'update_libvterm' of https://github.com/akermu/emacs-libvterm
+b1d9218b731a5e9e89e3ef681926cc68741b828c	not-for-merge	branch 'use_termios' of https://github.com/akermu/emacs-libvterm
+a29efa393f4c56b3347e200b991912e71f83bde4	not-for-merge	branch 'vendor_libvterm' of https://github.com/akermu/emacs-libvterm
