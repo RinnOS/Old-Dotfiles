@@ -1,0 +1,8 @@
+Add dot_config/nvim/init.lua
+Add dot_config/nvim/keybindings.md
+Add dot_config/nvim/lua/user/cmp.lua
+Add dot_config/nvim/lua/user/colorscheme.lua
+Add dot_config/nvim/lua/user/keymaps.lua
+Add dot_config/nvim/lua/user/options.lua
+Add dot_config/nvim/lua/user/plugins.lua
+Add dot_config/nvim/plugin/packer_compiled.lua
