@@ -1,10 +1,13 @@
+local error = require('user/msg').error
 local cmp_status_ok, cmp = pcall(require, 'cmp')
 if not cmp_status_ok then
+  error('CMP Error', 'CMP returned false status')
   return
 end
 
 local snip_status_ok, luasnip = pcall(require, 'luasnip')
 if not snip_status_ok then
+  error('LuaSnip Error', 'LuaSnip returned false status')
   return
 end
 

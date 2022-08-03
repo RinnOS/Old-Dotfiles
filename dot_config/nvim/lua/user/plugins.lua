@@ -47,7 +47,17 @@ return packer.startup(function(use)
   use 'tpope/vim-commentary' -- Commenting with gcc & gc
   use 'ap/vim-css-color'
   use 'ryanoasis/vim-devicons'
-  
+  use 'nvim-lualine/lualine.nvim'
+  use 'rcarriga/nvim-notify'
+  use 'glepnir/dashboard-nvim'
+  use 'kyazdani42/nvim-tree.lua'
+  use {
+    'nvim-treesitter/nvim-treesitter',
+    run = ':TSUpdate',
+  }
+  use 'p00f/nvim-ts-rainbow'
+  use 'andweeb/presence.nvim'
+
   -- Themes
   use 'yashguptaz/calvera-dark.nvim'
   use 'tiagovla/tokyodark.nvim'

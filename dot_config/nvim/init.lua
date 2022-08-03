@@ -1,5 +1,11 @@
-require ('user/options')
-require ('user/plugins')
-require ('user/keymaps')
-require ('user/cmp')
-require ('user/colorscheme')
+require 'user/options'
+require 'user/plugins'
+require 'user/keymaps'
+require 'user/cmp'
+require 'user/colorscheme'
+require 'user/lualine'
+require 'user/nvim-notify'
+require 'user/dashboard'
+require 'user/nvim-tree'
+require 'user/treesitter'
+require 'user/presence'

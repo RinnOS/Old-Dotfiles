@@ -14,6 +14,9 @@ vim.g.maplocalleader = ' '
 --  term_mode = 't',
 --  command_mode = 'c'
 
+-- All --
+map('', '<F6>', ':NvimTreeToggle<CR>', opts)
+
 -- Normal --
 -- Better window navigation
 map('n', '<C-h>', '<C-w>h', opts)
@@ -49,6 +52,10 @@ map('n', '<leader>ws', ':split<CR>', opts)
 map('n', '<leader>wv', ':split<CR>', opts)
 
 map('n', '<leader>e', ':Lex 20<CR>', opts)
+
+-- File Manager
+map('n', '<leader>tf', ':NvimTreeToggle<CR>', opts)
+map('n', '<leader>ff', ':NvimTreeFindFile<CR>', opts)
 
 -- Insert --
 -- jk fast to exit

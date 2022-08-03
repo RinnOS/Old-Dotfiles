@@ -5,9 +5,11 @@ local theme = 'neon'
 -- Available styles: default, doom, dark, light
 local neon_style = 'dark'
 
+
+local warn = require('user/msg').warn
 local status_ok, _ = pcall(vim.cmd, 'colorscheme ' .. theme)
 if not status_ok then
-  vim.notify('Colorscheme ' .. theme .. ' could not be found!')
+  warn('Colorscheme', 'Colorscheme ' .. theme .. ' could not be found!')
   return
 end
 
