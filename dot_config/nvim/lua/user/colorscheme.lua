@@ -1,10 +1,13 @@
--- Available themes: calvera, tokyodark, moonlight, moonfly, neon
-local theme = 'neon'
+-- Available themes: calvera, tokyodark, moonlight, moonfly, neon, material
+local theme = 'material'
 
--- Uncomment of using theme neon
+-- Uncomment if using theme neon
 -- Available styles: default, doom, dark, light
 local neon_style = 'dark'
 
+-- Uncomment if using theme material
+-- Available styles: darker, lighter, oceanic, palenight, deep ocean
+local material_style = 'deep ocean'
 
 local warn = require('user/msg').warn
 local status_ok, _ = pcall(vim.cmd, 'colorscheme ' .. theme)
@@ -13,10 +16,19 @@ if not status_ok then
   return
 end
 
+local material_status_ok, _ = pcall(vim.cmd, 'colorscheme material')
+if material_status_ok then
+  vim.g.material_style = material_style or 'darker'
+  require('material').setup({
+    italics = {
+      comments = true,
+    },
+  })
+end
 
 local neon_status_ok, _ = pcall(vim.cmd, 'colorscheme neon')
 if neon_status_ok then
-  vim.g.neon_style = neon_style
+  vim.g.neon_style = neon_style or 'default'
   vim.g.neon_italic_comment = true
 end
 

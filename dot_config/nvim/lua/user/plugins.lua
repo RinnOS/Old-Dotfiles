@@ -57,6 +57,13 @@ return packer.startup(function(use)
   }
   use 'p00f/nvim-ts-rainbow'
   use 'andweeb/presence.nvim'
+  use 'windwp/nvim-autopairs'
+  use 'folke/which-key.nvim'
+  use 'akinsho/toggleterm.nvim'
+  use 'nvim-telescope/telescope.nvim'
+  use 'norcalli/nvim-colorizer.lua'
+  use 'sunjon/shade.nvim'
+  use 'jghauser/mkdir.nvim'
 
   -- Themes
   use 'yashguptaz/calvera-dark.nvim'
@@ -64,6 +71,7 @@ return packer.startup(function(use)
   use 'shaunsingh/moonlight.nvim'
   use 'bluz71/vim-moonfly-colors'
   use 'rafamadriz/neon'
+  use 'marko-cerovac/material.nvim'
 
   -- CMP
   use 'hrsh7th/nvim-cmp'

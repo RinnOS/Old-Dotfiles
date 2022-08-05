@@ -1,3 +1,10 @@
+local error = require('user/msg')
+local status_ok, wk = pcall(require, 'which-key')
+if not status_ok then
+  error('Which-Key', 'Which-Key ran into some problems in keymaps.lua')
+  return
+end
+
 local opts = { noremap = true, silent = true }
 local term_opts = { silent = true }
 local map = vim.api.nvim_set_keymap
@@ -17,8 +24,77 @@ vim.g.maplocalleader = ' '
 -- All --
 map('', '<F6>', ':NvimTreeToggle<CR>', opts)
 
+local n_opts = {
+  mode = 'n',
+  noremap = true,
+  silent = true,
+}
+
 -- Normal --
--- Better window navigation
+wk.register({
+  ['<leader>'] = {
+    -- Window
+    w = {
+      name = 'Window',
+      -- Movement
+      h = { '<C-w>h', 'Window left' },
+      j = { '<C-w>j', 'Window down' },
+      k = { '<C-w>k', 'Window up' },
+      l = { '<C-w>l', 'Window right' },
+      ['<Left>'] = { '<C-w>h', 'Window left' },
+      ['<Down>'] = { '<C-w>j', 'Window down' },
+      ['<Up>'] = { '<C-w>k', 'Window up' },
+      ['<Right>'] = { '<C-w>l', 'Window right' },
+
+      -- Splits
+      s = { '<CMD>split<CR>', 'Horisontal split' },
+      v = { '<CMD>vsplit<CR>', 'Vertical split' },
+
+      c = { '<CMD>quit<CR>', 'Close window' },
+    },
+
+    -- File
+    f = {
+      name = "File",
+      n = { '<CMD>enew<CR>', 'New file' },
+      r = { '<CMD>Telescope oldfiles<CR>', 'Recent files'},
+      f = { '<CMD>Telescope find_files<CR>', 'Find file'},
+      l = { '<CMD>Telescope live_grep<CR>', 'Fine line'},
+      p = { '<CMD>e ~/.config/nvim/lua/user<CR>', 'Open configs' },
+    },
+
+    -- Buffer
+    b = {
+      name = "Buffer",
+      b = { '<CMD>Telescope buffers<CR>', 'List buffers' },
+    },
+
+    -- Toggle
+    t = {
+      name = 'Toggle',
+      t = { '<CMD>ToggleTerm<CR>', 'Terminal' },
+    },
+
+    -- Git
+    g = {
+      name = 'Git',
+      c = { '<CMD>Telescope git_commits<CR>', 'Commits' },
+      b = { '<CMD>Telescope git_branches<CR>', 'Branches' },
+    },
+
+    -- Help
+    h = {
+      name = 'Help',
+      t = { '<CMD>Telescope help_tags<CR>', 'Tags' },
+      k = { '<CMD>Telescope keymaps<CR>', 'Keymaps' },
+    },
+
+    e = { '<CMD>NvimTreeToggle<CR>', 'Explorer' },
+    ['.'] = { '<CMD>lua require("notify").notify("Find file")<CR>', 'Find file'},
+  },
+}, n_opts)
+
+-- Faster window navigation
 map('n', '<C-h>', '<C-w>h', opts)
 map('n', '<C-j>', '<C-w>j', opts)
 map('n', '<C-k>', '<C-w>k', opts)
@@ -27,15 +103,6 @@ map('n', '<C-Up>', '<C-w>k', opts)
 map('n', '<C-Down>', '<C-w>j', opts)
 map('n', '<C-Left>', '<C-w>h', opts)
 map('n', '<C-Right>', '<C-w>l', opts)
-
-map('n', '<leader>wh', '<C-w>h', opts)
-map('n', '<leader>wj', '<C-w>j', opts)
-map('n', '<leader>wk', '<C-w>k', opts)
-map('n', '<leader>wl', '<C-w>l', opts)
-map('n', '<leader>w<Left>', '<C-w>h', opts)
-map('n', '<leader>w<Down>', '<C-w>j', opts)
-map('n', '<leader>w<Up>', '<C-w>k', opts)
-map('n', '<leader>w<Right>', '<C-w>l', opts)
 
 -- Resize
 map('n', '<C-S-Up>', ':resize +2<CR>', opts)
@@ -46,16 +113,6 @@ map('n', '<C-S-k>', ':resize +2<CR>', opts)
 map('n', '<C-S-j>', ':resize -2<CR>', opts)
 map('n', '<C-S-h>', ':vertical resize -2<CR>', opts)
 map('n', '<C-S-l>', ':vertical resize +2<CR>', opts)
-
--- Splits
-map('n', '<leader>ws', ':split<CR>', opts)
-map('n', '<leader>wv', ':split<CR>', opts)
-
-map('n', '<leader>e', ':Lex 20<CR>', opts)
-
--- File Manager
-map('n', '<leader>tf', ':NvimTreeToggle<CR>', opts)
-map('n', '<leader>ff', ':NvimTreeFindFile<CR>', opts)
 
 -- Insert --
 -- jk fast to exit
@@ -80,3 +137,16 @@ map('x', '<A-j>', ":move '>+1<CR>gv-gv", opts)
 map('x', '<A-k>', ":move '<-2<CR>gv-gv", opts)
 map('x', '<A-Down>', ":move '>+1<CR>gv-gv", opts)
 map('x', '<A-Up>', ":move '<-2<CR>gv-gv", opts)
+
+-- Terminal --
+map('t', '<ESC>', '<C-\\><C-N>', opts)
+
+-- Quick Movement
+map('t', '<C-h>', '<C-\\><C-N><C-w>h', opts)
+map('t', '<C-j>', '<C-\\><C-N><C-w>j', opts)
+map('t', '<C-k>', '<C-\\><C-N><C-w>k', opts)
+map('t', '<C-l>', '<C-\\><C-N><C-w>l', opts)
+map('t', '<C-Up>', '<C-\\><C-N><C-w>k', opts)
+map('t', '<C-Down>', '<C-\\><C-N><C-w>j', opts)
+map('t', '<C-Left>', '<C-\\><C-N><C-w>h', opts)
+map('t', '<C-Right>', '<C-\\><C-N><C-w>l', opts)
