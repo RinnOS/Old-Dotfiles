@@ -1,0 +1,328 @@
+#+TITLE: Rinnray's Emacs Config
+#+AUTHOR: Luna Petersson
+
+* TABLE OF CONTENTS :toc:
+
+
+* UNSORTED
+** Indent
+#+begin_src emacs-lisp
+  (setq-default indent-tabs-mode nil)
+  (setq-default tab-width 2)
+  (setq-default c-basic-offset 2)
+  (setq indent-line-function 'insert-tab)
+#+end_src
+
+
+* PACKAGE MANAGEMENT
+** Setup package.el
+#+begin_src emacs-lisp
+  (require 'package)
+  (add-to-list 'package-archives
+               '("melpa" . "https://melpa.org/packages/") t)
+  (package-refresh-contents)
+  (package-initialize)
+#+end_src
+
+** use-package
+#+begin_src emacs-lisp
+  (unless (package-installed-p 'use-package)
+    (package-install 'use-package))
+
+  (require 'use-package-ensure)
+  (setq use-package-always-ensure t)
+#+end_src
+
+** Evil
+#+begin_src emacs-lisp
+  (use-package evil
+    :init
+    (setq evil-want-integration t) ;; This is optional since it's already set to t by default.
+    (setq evil-want-keybinding nil)
+    (setq evil-vsplit-window-right t)
+    (setq evil-split-window-below t)
+    (setq evil-undo-system 'undo-fu)
+    (evil-mode))
+
+  (use-package evil-collection
+    :after evil
+    :config
+    (evil-collection-init))
+#+end_src
+
+** General keybindings
+#+begin_src emacs-lisp
+  (use-package general
+    :config
+    (general-evil-setup t))
+#+end_src
+
+** Which key
+#+begin_src emacs-lisp
+  (use-package which-key)
+  (which-key-mode)
+#+end_src
+
+** Doom themes
+#+begin_src emacs-lisp
+  (use-package doom-themes)
+#+end_src
+
+** Highlight Indent Guides
+#+begin_src emacs-lisp
+  (use-package highlight-indent-guides
+    :init
+    (setq highlight-indent-guides-method 'character)
+    (add-hook 'prog-mode-hook 'highlight-indent-guides-mode))
+#+end_src
+
+** All The Icons
+#+begin_src emacs-lisp
+  (use-package all-the-icons
+    :if (display-graphic-p)
+    :commands all-the-icons-install-fonts)
+#+end_src
+
+** Emojify
+#+begin_src emacs-lisp
+  (use-package emojify
+    :hook (after-init . global-emojify-mode))
+#+end_src
+
+** Rainbow Delimiters
+#+begin_src emacs-lisp
+  (use-package rainbow-delimiters
+    :hook (prog-mode . rainbow-delimiters-mode))
+#+end_src
+
+** Move Text
+#+begin_src emacs-lisp
+  (use-package move-text)
+#+end_src
+
+** Undo Fu
+#+begin_src emacs-lisp
+  (use-package undo-fu)
+#+end_src
+
+** Undo Fu Session
+#+begin_src emacs-lisp
+  (use-package undo-fu-session
+    :config
+    (setq undo-fu-session-incompatible-files '("/COMMIT_EDITMSG\\'" "/git-rebase-todo\\'")))
+  (global-undo-fu-session-mode)
+#+end_src
+
+** Yasnippet
+#+begin_src emacs-lisp
+  (use-package yasnippet
+    :config
+    (setq yas-snippet-dirs '("~/.emacs.d/snippets"))
+    (yas-global-mode 1))
+#+end_src
+
+** Sudo Edit
+#+begin_src emacs-lisp
+  (use-package sudo-edit)
+#+end_src
+
+** Minimap
+#+begin_src emacs-lisp
+  (use-package minimap)
+#+end_src
+
+** Doom Modeline
+#+begin_src emacs-lisp
+  (use-package doom-modeline
+    :init
+    (doom-modeline-mode 1))
+#+end_src
+
+** Good Scroll
+#+begin_src emacs-lisp
+  (use-package good-scroll
+    :init
+    (good-scroll-mode 1))
+#+end_src
+
+** Counsel, Ivy, Swiper
+#+begin_src emacs-lisp
+  (use-package counsel
+    :init
+    (ivy-mode 1))
+#+end_src
+
+** Dimmer
+#+begin_src emacs-lisp
+  (use-package dimmer
+    :config
+    (setq dimmer-fraction 0.3))
+  (dimmer-mode t)
+#+end_src
+
+** VTerm
+#+begin_src emacs-lisp
+  (use-package vterm)
+#+end_src
+
+** Whitespace
+#+begin_src emacs-lisp
+  (use-package whitespace
+    :config
+    (setq whitespace-style (quote (face trailing)))
+    :init
+    (global-whitespace-mode t))
+#+end_src
+
+
+* STYLE
+** GUI
+#+begin_src emacs-lisp
+  (scroll-bar-mode -1)
+  (tool-bar-mode -1)
+  (set-fringe-mode -1)
+  (menu-bar-mode -1)
+#+end_src
+
+** Line numbers
+#+begin_src emacs-lisp
+  (global-display-line-numbers-mode 1)
+#+end_src
+
+** Truncate lines
+#+begin_src emacs-lisp
+  (global-visual-line-mode t)
+#+end_src
+
+** Theme
+#+begin_src emacs-lisp
+  (setq doom-themes-enable-bold t
+        doom-themes-enable-italic t)
+
+  (load-theme 'doom-acario-dark t)
+#+end_src
+
+** Fonts
+#+begin_src emacs-lisp
+  (set-face-attribute 'default nil
+                      :font "SauceCodePro Nerd Font 11"
+                      :weight 'medium)
+  (set-face-attribute 'variable-pitch nil
+                      :font "Ubuntu Nerd Font 11"
+                      :weight 'medium)
+  (set-face-attribute 'fixed-pitch nil
+                      :font "SauceCodePro Nerd Font 11"
+                      :weight 'medium)
+  (add-to-list 'default-frame-alist '(font . "Source Code Pro-11"))
+  (setq-default line-spacing 0.08)
+  (setq global-prettify-symbols-mode t)
+#+end_src
+
+
+* KEYBINDINGS
+** Zooming In and Out
+#+begin_src emacs-lisp
+  (global-set-key (kbd "C-+") 'text-scale-increase)
+  (global-set-key (kbd "C--") 'text-scale-decrease)
+  (global-set-key (kbd "<C-wheel-up>") 'text-scale-increase)
+  (global-set-key (kbd "<C-wheel-down>") 'text-scale-decrease)
+  (global-set-key (kbd "C-0") '(lambda () (interactive) (text-scale-adjust 0)))
+#+end_src
+
+** Move text
+#+begin_src emacs-lisp
+  (global-set-key (kbd "M-<up>") 'move-text-up)
+  (global-set-key (kbd "M-<down>") 'move-text-down)
+  (global-set-key (kbd "M-k") 'move-text-up)
+  (global-set-key (kbd "M-j") 'move-text-down)
+#+end_src
+
+** Undo & Redo
+#+begin_src emacs-lisp
+  (global-unset-key (kbd "C-z"))
+  (global-set-key (kbd "C-z") 'undo-fu-only-undo)
+  (global-set-key (kbd "C-S-z") 'undo-fu-onlt-redo)
+#+end_src
+
+** Escape quit
+#+begin_src emacs-lisp
+  (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
+#+end_src
+
+** File
+#+begin_src emacs-lisp
+  (nvmap :prefix "SPC"
+    "f"               '(:ignore t :wk "File")
+    "f s"             '(save-buffer :wk "Save file")
+    "f S"             '(write-file :wk "Save as")
+    "f R"             '(rename-file :wk "Rename")
+    "f D"             '(delete-file :wk "Delete")
+    "f f"             '(counsel-find-file :wk "Find file")
+    "f u"             '(sudo-edit-find-file :wk "Find file as root")
+    "f U"             '(sudo-edit :wk "Save as root"))
+#+end_src
+
+** Window
+#+begin_src emacs-lisp
+  (nvmap :prefix "SPC"
+    "w"                '(:ignore t :wk "Window")
+    "w c"              '(evil-window-delete :wk "Close window")
+    "w n"              '(evil-window-new :wk "New window")
+    "w s"              '(evil-window-split :wk "Horizontal split window")
+    "w v"              '(evil-window-vsplit :wk "Vertical split window")
+
+    "w h"               '(evil-window-left :wk "Window left")
+    "w j"               '(evil-window-down :wk "Window down")
+    "w k"               '(evil-window-up :wk "Window up")
+    "w l"               '(evil-window-right :wk "Window right")
+    ;; Arrow keys
+    "w <left>"          '(evil-window-left :wk "Window left")
+    "w <down>"          '(evil-window-down :wk "Window down")
+    "w <up>"            '(evil-window-up :wk "Window up")
+    "w <right>"         '(evil-window-right :wk "Window right")
+
+    "w w"               '(evil-window-next :wk "Next window"))
+#+end_src
+
+** Toggle
+#+begin_src emacs-lisp
+  (nvmap :prefix "SPC"
+    "t"                 '(:ignore t :wk "Toggle")
+    "t t"               '(toggle-truncate-lines :wk "Truncate lines")
+    "t m"               '(minimap-mode :wk "Minimap")
+    "t v"               '(vterm-other-window :wk "VTerm"))
+#+end_src
+
+** Help
+#+begin_src emacs-lisp
+  (nvmap :prefix "SPC"
+    "h"                 '(:ignore t :wk "Help")
+    "h f"               '(counsel-describe-function :wk "Describe function")
+    "h v"               '(counsel-describe-variable :wk "Describe variable")
+    "h u"               '(counsel-unicode-char :wk "Unicode characters")
+
+    "h r r"             '((lambda () (interactive) (load-file "~/.emacs.d/init.el")) :wk "Reload emacs config")
+
+    "h y"                 '(:ignore t :wk "Yasnippet")
+    "h y n"               '(yas-new-snippet :wk "New snippet")
+    "h y v"               '(yas-visit-snippet-file :wk "Visit snippet"))
+#+end_src
+
+** Extras
+#+begin_src emacs-lisp
+  (nvmap :prefix "SPC"
+    "SPC"               '(counsel-M-x :wk "M-X")
+    "."                 '(find-file :wk "Find file")
+    "u"                 '(undo-fu-only-undo :wk "Undo")
+    "U"                 '(undo-fu-only-redo :wk "Redo"))
+#+end_src
+
+
+#+begin_src emacs-lisp
+  (add-to-list 'display-buffer-alist
+               '("\*vterm\*"
+                 (display-buffer-in-side-window)
+                 (window-height . 0.25)
+                 (side . bottom)
+                 (slot . 0)))
+#+end_src
