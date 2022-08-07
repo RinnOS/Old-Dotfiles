@@ -14,7 +14,7 @@ sleep .5
 run picom
 sleep 2
 sh $HOME/scripts/nvidiaPipeline.sh
-sleep 1
+sleep 2
 nitrogen --restore
 
 sleep 3
