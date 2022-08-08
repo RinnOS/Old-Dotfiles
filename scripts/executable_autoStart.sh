@@ -11,7 +11,7 @@ run(){
 
 sh $HOME/scripts/monitorLayout.sh
 sleep 1
-sh $HOME/scripts/nvidiaPipeline.sh
+sh $HOME/scripts/nvidiaPipepline.sh
 sleep 2
 run picom
 sleep 2
