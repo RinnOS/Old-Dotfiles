@@ -16,7 +16,7 @@ set $mod Mod4
 
 # Workspaces
 set $ws1 "1:WWW"
-set $ws2 "2"
+set $ws2 "2:NOTE"
 set $ws3 "3:DEV"
 set $ws4 "4:GAME"
 set $ws5 "5:CHAT"
@@ -100,7 +100,7 @@ assign [class="PolyMC"] $ws4
 assign [class="Origin"] $ws4
 
 assign [class="obsidian"] $ws2
-assign [class="Signal"] $ws2
+assign [class="inkdrop"] $ws2
 
 assign [class="Code"] $ws3
 assign [class="GitFiend"] $ws3
@@ -128,14 +128,17 @@ no_focus [class="Lutris"]
 no_focus [class="Itch"]
 no_focus [class="obsidian"]
 no_focus [class="GitFiend"]
+no_focus [class="inkdrop"]
+no_focus [class="pulsemeeter"]
 no_focus [class="Signal"]
 
 for_window [class="Steam"] layout tabbed
 for_window [class="Lutris"] layout tabbed
 for_window [class="Itch"] layout tabbed
-for_window [class="obsidian"] layout tabbed
-for_window [class="GitFiend"] layout tabbed
+for_window [class="obsidian"] layout stacked
+for_window [class="GitFiend"] layout stacked
 for_window [class="FreeTube"] layout tabbed
+for_window [class="inkdrop"] layout stacked
 
 for_window [class="Waterfox"] layout stacking
 
@@ -149,11 +152,11 @@ for_window [class="fhugame.exe"] floating enable
 #####################
 
 # default i3 tiling mode:
-workspace_layout default
+#workspace_layout default
 
 # i3 stacking layout:
 # Each window will be fullscreen and tabbed top to bottom.
-#workspace_layout stacking
+workspace_layout stacking
 
 # i3 tabbed layout:
 # Each new window will open fullscreen as a tab (left to right)

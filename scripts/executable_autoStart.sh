@@ -10,10 +10,10 @@ run(){
 }
 
 sh $HOME/scripts/monitorLayout.sh
-sleep .5
-run picom
-sleep 2
+sleep 1
 sh $HOME/scripts/nvidiaPipeline.sh
+sleep 2
+run picom
 sleep 2
 nitrogen --restore
 
@@ -27,6 +27,7 @@ run discord
 run steam
 run lutris
 run spotify
+run inkdrop
 
 # run "alacritty --class fm,fm -e ranger"
 # run "alacritty --class sound,sound -e pulsemixer"
