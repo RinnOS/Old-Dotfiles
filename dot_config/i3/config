@@ -101,6 +101,7 @@ assign [class="Origin"] $ws4
 
 assign [class="obsidian"] $ws2
 assign [class="inkdrop"] $ws2
+assign [class="todoist"] $ws2
 
 assign [class="Code"] $ws3
 assign [class="GitFiend"] $ws3
@@ -129,6 +130,7 @@ no_focus [class="Itch"]
 no_focus [class="obsidian"]
 no_focus [class="GitFiend"]
 no_focus [class="inkdrop"]
+no_focus [class="todoist"]
 no_focus [class="pulsemeeter"]
 no_focus [class="Signal"]
 
@@ -139,6 +141,7 @@ for_window [class="obsidian"] layout stacked
 for_window [class="GitFiend"] layout stacked
 for_window [class="FreeTube"] layout tabbed
 for_window [class="inkdrop"] layout stacked
+for_window [class="todoist"] layout stacked
 
 for_window [class="Waterfox"] layout stacking
 
