@@ -1,0 +1,237 @@
+base:
+  # --- Audio ---
+  - pulseaudio
+  - pulseaudio-alsa
+  - pulseaudio-bluetooth
+  - pulseaudio-jack
+  - ffmpeg
+
+  # --- Bluetooth ---
+  - bluez
+  - bluez-utils
+  - blueman
+
+  # --- Terminal ---
+  - zsh
+  - zsh-autosuggestions
+  - zsh-syntax-highlighting
+  - xclip
+  - bat
+  - thefuck
+  - btop
+  - curl
+  - wget
+
+  # --- Docker ---
+  - docker
+  - docker-compose
+
+  # --- Fonts ---
+  - noto-fonts
+  - noto-fonts-emoji
+  - ttf-font-awesome
+  - ttf-fira-code
+
+  # --- Utilities ---
+  - flatpak
+
+  # --- Uncategorized | Related to Wine hell ---
+  - sddm
+  - i3-gaps
+  - lxappearance
+  - qt5ct
+  - picom
+  - nvidia-utils
+  - nvidia-dkms
+  - lib32-nvidia-utils
+  - nvidia-settings
+  - vulkan-icd-loader
+  - lib32-vulkan-icd-loader
+  - winetricks
+  - wine-staging
+  - giflib
+  - lib32-giflib
+  - libpng
+  - lib32-libpng
+  - libldap
+  - lib32-libldap
+  - gnutls
+  - lib32-gnutls
+  - mpg123
+  - lib32-mpg123
+  - openal
+  - lib32-openal
+  - v4l-utils
+  - lib32-v4l-utils
+  - libpulse
+  - lib32-libpulse
+  - libgpg-error
+  - lib32-libgpg-error
+  - alsa-plugins
+  - lib32-alsa-plugins
+  - alsa-lib
+  - lib32-alsa-lib
+  - libjpeg-turbo
+  - lib32-libjpeg-turbo
+  - sqlite
+  - lib32-sqlite
+  - libxcomposite
+  - lib32-libxcomposite
+  - libxinerama
+  - lib32-libgcrypt
+  - libgcrypt
+  - lib32-libxinerama
+  - ncurses
+  - lib32-ncurses
+  - opencl-icd-loader
+  - lib32-opencl-icd-loader
+  - libxslt
+  - lib32-libxslt
+  - libva
+  - lib32-libva
+  - gtk3
+  - lib32-gtk3
+  - gst-plugins-base-libs
+  - lib32-gst-plugins-base-libs
+  - vulkan-icd-loader
+  - lib32-vulkan-icd-loader
+  - xdelta3
+  - jdk8-openjdk
+  - jdk-openjdk
+
+pacman:
+  # --- Terminal ---
+  - alacritty
+  - vim
+  - wget
+  - calc
+  - neofetch
+  - pulsemixer
+
+  # --- Games ---
+  - steam
+  - gamemode
+  - lib32-gamemode
+  - lutris
+
+  # --- Development ---
+  - nodejs
+  - npm
+  - yarn
+  - git
+
+  # --- Virtualization ---
+  - virtualbox
+  - virtualbox-host-dkms
+  - virt-manager
+  - virt-viewer
+  - qemu
+  - libvirt
+
+  # --- Audio/Video ---
+  - vlc
+  - mpv
+  - feh
+
+  # --- Security ---
+  - firetools
+
+  # --- Applications ---
+  - emacs
+  - signal-desktop
+  - discord
+  - terminator
+  - gimp
+  - qbittorrent
+
+  # --- Office ---
+  - libreoffice
+
+  # --- Dependencies ---
+  - ripgrep
+  - fd
+  - coreutils
+  - gvfs
+  - playerctl
+  - ctags
+
+  # --- Utilities ---
+  - imwheel
+  - flameshot
+  - grub-customizer
+  - numlockx
+  - chezmoi
+  - gnome-disk-utility
+  - nitrogen
+  - dmenu
+  - rofi
+  - polybar
+  - dunst
+  - thunar
+  - ranger
+
+  # --- Uncategorized ---
+  - gnome-themes-extra
+  - aspell
+  - aspell-en
+  - aspell-sv
+  - mono
+  - perl-anyevent-i3
+
+aur:
+  # --- Utilities ---
+  - timeshift
+  - appimagelauncher
+  - optimus-manager
+  - optimus-manager-qt
+  - popsicle
+  - yt-dlg
+  - ventoy
+  - betterdiscordctl
+  - inkdrop
+
+  # --- Fonts ---
+  - nerd-fonts-complete
+  - ttf-all-the-icons
+
+  # --- Audio/Video ---
+  - pulsemeeter
+  - wtwitch
+  - ani-cli
+  - yt-dlp
+  - nuclear-player-bin
+  - spotify
+
+  # --- Development ---
+  - visual-studio-code-bin
+  - gitfiend
+  - debtap
+  - neovim
+
+  # --- Applications ---
+  - freetube-bin
+  - obsidian
+  - protonvpn
+  - waterfox-g4-bin
+
+  # --- Games ---
+  - itch
+  - polymc
+
+  # --- Dependencies ---
+  - zscroll
+
+flatpak:
+  - bottles
+  - com.github.tchx84.Flatseal
+
+appimage:
+  - name: Example
+    url: https://google.com
+    version: 0.2.2
+  - name: Todoist
+    url: https://todoist.com/linux_app/appimage
+    version: 1.0.7
+  - name: Rambox
+    url: https://rambox.app/api/download?os=linux&package=AppImage
+    version: 2.0.6
