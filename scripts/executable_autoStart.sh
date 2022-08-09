@@ -10,7 +10,7 @@ run(){
 }
 
 sh $HOME/scripts/monitorLayout.sh
-sleep 1
+sleep 2
 sh $HOME/scripts/nvidiaPipepline.sh
 sleep 2
 run picom
@@ -28,6 +28,7 @@ run steam
 run lutris
 run spotify
 run inkdrop
+run $APP/Todoist-*.AppImage
 
 # run "alacritty --class fm,fm -e ranger"
 # run "alacritty --class sound,sound -e pulsemixer"
