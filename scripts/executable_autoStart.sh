@@ -29,6 +29,7 @@ run lutris
 run spotify
 run inkdrop
 run $APP/Todoist-*.AppImage
+run $APP/Anytype-*.AppImage
 
 # run "alacritty --class fm,fm -e ranger"
 # run "alacritty --class sound,sound -e pulsemixer"
