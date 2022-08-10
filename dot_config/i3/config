@@ -102,6 +102,7 @@ assign [class="Origin"] $ws4
 assign [class="obsidian"] $ws2
 assign [class="inkdrop"] $ws2
 assign [class="todoist"] $ws2
+assign [class="anytype2"] $ws2
 
 assign [class="Code"] $ws3
 assign [class="GitFiend"] $ws3
@@ -142,6 +143,7 @@ for_window [class="GitFiend"] layout stacked
 for_window [class="FreeTube"] layout tabbed
 for_window [class="inkdrop"] layout stacked
 for_window [class="todoist"] layout stacked
+for_window [class="anytype2"] layout stacked
 
 for_window [class="Waterfox"] layout stacking
 
