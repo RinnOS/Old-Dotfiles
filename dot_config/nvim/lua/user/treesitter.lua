@@ -1,7 +1,5 @@
-local error = require('user/msg').error
 local status_ok, configs = pcall(require, 'nvim-treesitter.configs')
 if not status_ok then
-  error('Treesitter', 'Treesitter ran into some issues.')
   return
 end
 
@@ -23,5 +21,8 @@ configs.setup {
   rainbow = {
     enable = true,
     extended_mode = true,
-  }
+  },
+  autotag = {
+    enable = true,
+  },
 }
