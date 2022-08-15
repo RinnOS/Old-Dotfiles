@@ -1,7 +1,5 @@
-local error = require('user/msg').error
 local status_ok, db = pcall(require, 'dashboard')
 if not status_ok then
-  error('Dashboard', 'Dashboard got an error')
   return
 end
 
