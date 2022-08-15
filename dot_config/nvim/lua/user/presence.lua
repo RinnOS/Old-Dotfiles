@@ -1,7 +1,5 @@
-local error = require('user/msg').error
 local status_ok, presence = pcall(require, 'presence')
 if not status_ok then
-  error('Presence', 'Presence ran into some issue')
   return
 end
 
