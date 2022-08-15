@@ -103,12 +103,13 @@ assign [class="obsidian"] $ws2
 assign [class="inkdrop"] $ws2
 assign [class="Todoist"] $ws2
 assign [class="anytype2"] $ws2
+assign [class="libreoffice-calc"] $ws2
 
 assign [class="Code"] $ws3
 assign [class="GitFiend"] $ws3
 
 # Right monitor
-assign [class="spotify"] $ws8
+assign [class="Spotify"] $ws8
 assign [class="mpv"] $ws8
 
 #################################
