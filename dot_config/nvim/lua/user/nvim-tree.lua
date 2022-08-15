@@ -1,7 +1,5 @@
-local error = require('user/msg').error
 local status_ok, tree = pcall(require, 'nvim-tree')
 if not status_ok then
-  error('Nvim-Tree', 'An error occured with nvim-tree')
   return
 end
 
