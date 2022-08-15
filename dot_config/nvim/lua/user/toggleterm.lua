@@ -1,7 +1,5 @@
-local error = require('user/msg').error
 local status_ok, tt = pcall(require, 'toggleterm')
 if not status_ok then
-  error('Toggleterm', 'Toggleterm ran into a problem')
   return
 end
 
