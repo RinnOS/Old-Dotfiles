@@ -28,3 +28,8 @@ o.shortmess:append 'c'
 
 vim.cmd 'set whichwrap+=<,>,[,],h,l'
 vim.cmd [[set iskeyword+=-]]
+
+vim.api.nvim_create_autocmd(
+  'BufEnter',
+  { command = 'set formatoptions-=cro'}
+)
