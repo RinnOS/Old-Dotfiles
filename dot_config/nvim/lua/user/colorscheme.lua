@@ -1,5 +1,5 @@
--- Available themes: calvera, tokyodark, moonlight, moonfly, neon, material
-local theme = 'material'
+-- Available themes: calvera, tokyodark, moonlight, moonfly, neon, material, codedark, nightfly, zephyr, 
+local theme = 'neon'
 
 -- Uncomment if using theme neon
 -- Available styles: default, doom, dark, light
@@ -9,10 +9,8 @@ local neon_style = 'dark'
 -- Available styles: darker, lighter, oceanic, palenight, deep ocean
 local material_style = 'deep ocean'
 
-local warn = require('user/msg').warn
 local status_ok, _ = pcall(vim.cmd, 'colorscheme ' .. theme)
 if not status_ok then
-  warn('Colorscheme', 'Colorscheme ' .. theme .. ' could not be found!')
   return
 end
 
