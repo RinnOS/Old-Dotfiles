@@ -1,7 +1,5 @@
-local error = require('user/msg')
 local status_ok, wk = pcall(require, 'which-key')
 if not status_ok then
-  error('Which-Key', 'Which-Key ran into some problems in keymaps.lua')
   return
 end
 
@@ -59,7 +57,7 @@ wk.register({
       n = { '<CMD>enew<CR>', 'New file' },
       r = { '<CMD>Telescope oldfiles<CR>', 'Recent files'},
       f = { '<CMD>Telescope find_files<CR>', 'Find file'},
-      l = { '<CMD>Telescope live_grep<CR>', 'Fine line'},
+      l = { '<CMD>Telescope live_grep<CR>', 'Find line'},
       p = { '<CMD>e ~/.config/nvim/lua/user<CR>', 'Open configs' },
     },
 
