@@ -1,8 +1,61 @@
 #+TITLE: Rinnray's Emacs Config
 #+AUTHOR: Luna Petersson
 
-* TABLE OF CONTENTS :toc:
-
+* Table of Contents                                                     :TOC:
+- [[#unsorted][UNSORTED]]
+  - [[#indent][Indent]]
+  - [[#scrolling][Scrolling]]
+- [[#package-management][PACKAGE MANAGEMENT]]
+  - [[#setup-packageel][Setup package.el]]
+  - [[#use-package][use-package]]
+  - [[#toc-org][Toc-org]]
+  - [[#evil][Evil]]
+  - [[#general-keybindings][General keybindings]]
+  - [[#which-key][Which key]]
+  - [[#doom-themes][Doom themes]]
+  - [[#highlight-indent-guides][Highlight Indent Guides]]
+  - [[#all-the-icons][All The Icons]]
+  - [[#emojify][Emojify]]
+  - [[#rainbow-delimiters][Rainbow Delimiters]]
+  - [[#move-text][Move Text]]
+  - [[#undo-fu][Undo Fu]]
+  - [[#undo-fu-session][Undo Fu Session]]
+  - [[#yasnippet][Yasnippet]]
+  - [[#sudo-edit][Sudo Edit]]
+  - [[#minimap][Minimap]]
+  - [[#doom-modeline][Doom Modeline]]
+  - [[#good-scroll][Good Scroll]]
+  - [[#counsel-ivy-swiper][Counsel, Ivy, Swiper]]
+  - [[#dimmer][Dimmer]]
+  - [[#vterm][VTerm]]
+  - [[#whitespace][Whitespace]]
+  - [[#projectile][Projectile]]
+  - [[#neotree][Neotree]]
+  - [[#company][Company]]
+  - [[#flycheck][Flycheck]]
+  - [[#lsp-ui][LSP UI]]
+  - [[#lsp-mode][LSP Mode]]
+- [[#style][STYLE]]
+  - [[#gui][GUI]]
+  - [[#line-numbers][Line numbers]]
+  - [[#truncate-lines][Truncate lines]]
+  - [[#theme][Theme]]
+  - [[#fonts][Fonts]]
+- [[#keybindings][KEYBINDINGS]]
+  - [[#zooming-in-and-out][Zooming In and Out]]
+  - [[#move-text-1][Move text]]
+  - [[#undo--redo][Undo & Redo]]
+  - [[#escape-quit][Escape quit]]
+  - [[#f1-f12][F1-F12]]
+  - [[#file][File]]
+  - [[#window][Window]]
+  - [[#buffer][Buffer]]
+  - [[#toggle][Toggle]]
+  - [[#project][Project]]
+  - [[#neotree-1][Neotree]]
+  - [[#org][Org]]
+  - [[#help][Help]]
+  - [[#extras][Extras]]
 
 * UNSORTED
 ** Indent
@@ -12,6 +65,15 @@
   (setq-default c-basic-offset 2)
   (setq indent-line-function 'insert-tab)
 #+end_src
+
+** Scrolling
++begin_src emacs-lisp
+(setq redisplay-dont-pause t
+scroll-margin 1
+scroll-step 1
+scroll-conservatively 10000
+scroll-preserve-screen-position 1)
++end_src
 
 
 * PACKAGE MANAGEMENT
@@ -32,6 +94,13 @@
   (require 'use-package-ensure)
   (setq use-package-always-ensure t)
 #+end_src
+
+** Toc-org
+#+begin_src emacs-lisp
+  (use-package toc-org
+    :hook (org-mode . toc-org-mode))
+#+end_src
+
 
 ** Evil
 #+begin_src emacs-lisp
@@ -140,9 +209,8 @@
 
 ** Good Scroll
 #+begin_src emacs-lisp
-  (use-package good-scroll
-    :init
-    (good-scroll-mode 1))
+  (use-package good-scroll)
+  (good-scroll-mode 1)
 #+end_src
 
 ** Counsel, Ivy, Swiper
@@ -172,6 +240,96 @@
     (setq whitespace-style (quote (face trailing)))
     :init
     (global-whitespace-mode t))
+#+end_src
+
+** Projectile
+#+begin_src emacs-lisp
+  (use-package projectile
+    :init
+    (setq projectile-project-search-paht '("~/Projects" "/mnt/Vault/Projects")
+          projectile-switch-project-action #'projectile-dired
+          projectile-completion-system 'ivy)
+    :config
+    (projectile-mode 1))
+#+end_src
+
+** Neotree
+#+begin_src emacs-lisp
+  (use-package neotree
+    :config
+    (setq neo-smart-open t
+          projectile-switch-project-action 'neotree-projectile-action))
+#+end_src
+
+** Company
+#+begin_src emacs-lisp
+  (use-package company
+    :config
+    (setq company-minimum-prefix-length 2
+          company-idle-delay 0.3))
+  (global-company-mode 1)
+#+end_src
+
+** Flycheck
+#+begin_src emacs-lisp
+  (use-package flycheck
+    :init (global-flycheck-mode))
+
+  (setq flycheck-indication-mode 'left-margin)
+  (add-hook 'flycheck-mode-hook #'flycheck-set-indication-mode)
+#+end_src
+
+** LSP UI
+#+begin_src emacs-lisp
+  (use-package lsp-ui
+    :config
+    (setq lsp-ui-sideline-show-diagnostics t)
+    :commands lsp-ui-mode)
+#+end_src
+
+** LSP Mode
+#+begin_src emacs-lisp
+  (use-package lsp-mode
+    :hook
+    ((lsp-mode . lsp-enable-which-key-integration)
+     (js-mode . lsp-deferred)
+     (typescript-mode . lsp-deferred)
+     (js2-mode . lsp-deferred)
+     (svelte-mode . lsp-deferred)
+      (sgml-mode . lsp-deferred)
+     (json-mode . lsp-deferred))
+    :commands (lsp lsp-deferred))
+#+end_src
+
+*** Language Servers
+**** Typescript
+#+begin_src emacs-lisp
+  (use-package typescript-mode
+    :mode "\\.ts\\'"
+    :config
+    (setq typescript-indent-level 2))
+#+end_src
+
+**** Javascript
+#+begin_src emacs-lisp
+  (use-package js2-mode
+    :mode "\\.js\\'"
+    :config
+    (setq js2-basic-offset 2))
+#+end_src
+
+**** Svelte
+#+begin_src emacs-lisp
+  (use-package svelte-mode
+    :mode "\\.svelte\\'")
+#+end_src
+
+**** JSON
+#+begin_src emacs-lisp
+  (use-package json-mode
+    :mode "\\.json\\'"
+    :config
+    (setq js-indent-level 2))
 #+end_src
 
 
@@ -249,6 +407,13 @@
   (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 #+end_src
 
+** F1-F12
+#+begin_src emacs-lisp
+  (global-set-key (kbd "<f5>") 'minimap-mode)
+  (global-set-key (kbd "<f6>") 'neotree-toggle)
+  (global-set-key (kbd "<f7>") 'vterm-other-window)
+#+end_src
+
 ** File
 #+begin_src emacs-lisp
   (nvmap :prefix "SPC"
@@ -284,13 +449,56 @@
     "w w"               '(evil-window-next :wk "Next window"))
 #+end_src
 
+** Buffer
+#+begin_src emacs-lisp
+  (nvmap :prefix "SPC"
+    "b"                 '(:ignore t :wk "Buffer")
+    "b b"               '(ibuffer :wk "Open ibuffer")
+    "b k"               '(kill-current-buffer :wk "Kill current buffer")
+    "b n"               '(next-buffer :wk "Next buffer")
+    "b p"               '(previous-buffer :wk "Previous buffer")
+    "b B"               '(ibuffer-list-buffers :wk "List buffers")
+    "b K"               '(kill-buffer :wk "Kill buffer"))
+#+end_src
+
 ** Toggle
 #+begin_src emacs-lisp
   (nvmap :prefix "SPC"
     "t"                 '(:ignore t :wk "Toggle")
     "t t"               '(toggle-truncate-lines :wk "Truncate lines")
     "t m"               '(minimap-mode :wk "Minimap")
+    "t f"               '(neotree-toggle :wk "Toggle neotree")
     "t v"               '(vterm-other-window :wk "VTerm"))
+#+end_src
+
+** Project
+#+begin_src emacs-lisp
+  (nvmap :prefix "SPC"
+    "p"                 '(:ignore t :wk "Project")
+    "p a"               '(projectile-find-other-file :wk "Find other file")
+    "p s"               '(projectile-switch-project :wk "Switch project"))
+#+end_src
+
+** Neotree
+#+begin_src emacs-lisp
+  (nvmap :prefix "SPC"
+    "n"                 '(:ignore t :wk "Neotree")
+    "n t"               '(neotree-toggle :wk "Toggle neotree")
+    "n f"               '(neotree-find :wk "Find file")
+    "n d"               '(neotree-dir :wk "Open directory")
+    "n s"               '(neotree-show :wk "Show neotree")
+    "n R"               '(neotree-rename-node :wk "Rename node")
+    "n D"               '(neotree-delete-node :wk "Delete node")
+    "n C"               '(neotree-create-node :wk "Create node")
+    "n H"               '(neotree-hidden-file-toggle :wk "Toggle hidden files"))
+#+end_src
+
+** Org
+#+begin_src emacs-lisp
+  (nvmap :prefix "SPC"
+    "o"                 '(:ignore t :wk "Org")
+    "o e"               '(org-export-dispatch :wk "Export org file")
+    "o s t"             '(org-set-tags-command :wk "Set heading tag"))
 #+end_src
 
 ** Help

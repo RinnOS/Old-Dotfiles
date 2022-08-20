@@ -85,7 +85,8 @@
 			"channel_map": [
 				"front-left",
 				"front-right"
-			]
+			],
+			"external": false
 		},
 		"2": {
 			"name": "Discord",
@@ -111,7 +112,8 @@
 			"channel_map": [
 				"front-left",
 				"front-right"
-			]
+			],
+			"external": false
 		},
 		"3": {
 			"name": "Music",
@@ -137,7 +139,8 @@
 			"channel_map": [
 				"front-left",
 				"front-right"
-			]
+			],
+			"external": true
 		}
 	},
 	"hi": {
@@ -217,7 +220,7 @@
 			"jack": false
 		}
 	},
-	"version": "1.2.14",
+	"version": "1.2.15",
 	"layout": "default",
 	"enable_vumeters": true,
 	"jack": {

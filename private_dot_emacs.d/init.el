@@ -8,7 +8,8 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(vterm dimmer counsel good-scroll minimap yasnippet undo-fu move-text rainbow-delimiters whitespace-cleanup-mode all-the-icons highlight-indent-guides aggressive-indent use-package)))
+   '(typescript-mode eglot flycheck lsp-mode company toc-org neotree projectile vterm dimmer counsel good-scroll minimap yasnippet undo-fu move-text rainbow-delimiters whitespace-cleanup-mode all-the-icons highlight-indent-guides aggressive-indent use-package))
+ '(safe-local-variable-values '((git-commit-major-mode . git-commit-elisp-text-mode))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
