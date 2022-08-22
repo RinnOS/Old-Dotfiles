@@ -21,7 +21,7 @@ sleep 3
 run dunst
 run blueman-applet
 run "/usr/bin/emacs --daemon"
-run pulsemeeter
+# run pulsemeeter
 run $APP/Rambox-*.AppImage
 run discord
 run steam
@@ -32,7 +32,8 @@ run $APP/Todoist-*.AppImage
 run $APP/Anytype-*.AppImage
 
 # run "alacritty --class fm,fm -e ranger"
-# run "alacritty --class sound,sound -e pulsemixer"
+run "alacritty --class sound,sound -e pulsemixer"
+
 
 #startProgram 3 "discord"
 #startProgram 4 "obsidian"
