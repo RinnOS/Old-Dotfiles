@@ -33,6 +33,7 @@ run $APP/Anytype-*.AppImage
 
 # run "alacritty --class fm,fm -e ranger"
 run "alacritty --class sound,sound -e pulsemixer"
+run "alacritty --class term,term"
 
 
 #startProgram 3 "discord"

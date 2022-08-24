@@ -98,6 +98,7 @@ assign [class="Lutris"] $ws4
 assign [class="MultiMC"] $ws4
 assign [class="PolyMC"] $ws4
 assign [class="Origin"] $ws4
+assign [class="heroic"] $ws4
 
 assign [class="obsidian"] $ws2
 assign [class="inkdrop"] $ws2
@@ -145,6 +146,7 @@ for_window [class="FreeTube"] layout tabbed
 for_window [class="inkdrop"] layout stacked
 for_window [class="todoist"] layout stacked
 for_window [class="anytype2"] layout stacked
+for_window [class="heroic"] layout stabbed
 
 for_window [class="Waterfox"] layout stacking
 
@@ -363,6 +365,7 @@ bindsym $mod+p exec $HOME/.config/rofi/bin/launcher_colorful
 #bindsym $mod+87 [class="pulsemeeter"] scratchpad show; move position center
 
 bindsym $mod+m [class="sound"] scratchpad show; [class="sound"] move position center
+bindsym $mod+Shift+Return [class="term"] scratchpad show; [class="term"] move position center
 
 ##################
 # floating rules #
@@ -381,6 +384,8 @@ for_window [class="Blueberry.py" instance="blueberry.py"] floating enable
 for_window [class="Bluetooth-sendto" instance="bluetooth-sendto"] floating enable
 for_window [class="Pamac-manager"] floating enable
 for_window [window_role="About"] floating enable
+
+for_window [class="term"] move scratchpad
 for_window [class="sound"] move scratchpad
 
 # set border of floating window
