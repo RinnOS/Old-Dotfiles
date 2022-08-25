@@ -65,18 +65,19 @@ return packer.startup(function(use)
 	use("norcalli/nvim-colorizer.lua")
 	use("sunjon/shade.nvim")
 	use("jghauser/mkdir.nvim")
-	use("github/copilot.vim")
-	use({
-		"zbirenbaum/copilot.lua",
-		event = { "VimEnter" },
-		config = function()
-			vim.defer_fn(function()
-				require("copilot").setup()
-			end, 100)
-		end,
-	})
+	-- use("github/copilot.vim")
+	-- use({
+	-- 	"zbirenbaum/copilot.lua",
+	-- 	event = { "VimEnter" },
+	-- 	config = function()
+	-- 		vim.defer_fn(function()
+	-- 			require("copilot").setup()
+	-- 		end, 100)
+	-- 	end,
+	-- })
 	use("windwp/nvim-ts-autotag")
 	use("mhartington/formatter.nvim")
+	use("wakatime/vim-wakatime")
 
 	-- Themes
 	use("yashguptaz/calvera-dark.nvim")
@@ -100,7 +101,7 @@ return packer.startup(function(use)
 	use("hrsh7th/cmp-path")
 	use("hrsh7th/nvim-cmp")
 	use("hrsh7th/cmp-nvim-lsp")
-	use({ "zbirenbaum/copilot-cmp", module = "copilot_cmp" })
+	-- use({ "zbirenbaum/copilot-cmp", module = "copilot_cmp" })
 
 	-- Snippets
 	use("l3mon4d3/LuaSnip")
